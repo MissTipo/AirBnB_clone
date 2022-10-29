@@ -9,7 +9,7 @@ import json
 from models.base_model import BaseModel
 
 
-class FileStorage:
+class FileStorage():
     """ serializes instances to a JSON file and
     deserializes JSON file to instances """
 
@@ -18,32 +18,33 @@ class FileStorage:
 
     def all(self):
         """ returns the dictionary __objects """
-        return (FileStorage.__objects)
+        return FileStorage.__objects
 
     def new(self, obj):
         """
         sets in __objects the obj with key <obj class name>.id """
-        key = __objects.__class__.__name__
-        FileStorage.__objects["{}.{}".format(key, obj.id)] = obj
+        key = obj.__class__.__name__ + "." + obj.id
+        FileStorage.__objects[key] = obj
+        #FileStorage.__objects["{}.{}".format(key, obj.id)] = obj
         # return f"Filestorage.__objects {key}.{obj.id}" = obj
 
     def save(self):
         """ serializes __objects to the JSON file """
         with open(FileStorage.__file_path, "w", encoding="utf-8") as f:
-            my_dict = FileStorage.__objects.items():
-                for key, value in FileStorage.__objects.items():
-                    new_dict[key] = value.to_dict()
-                json.dump(new_dict, f)
+            new_dict = FileStorage.__objects.copy()
+            for key, value in FileStorage.__objects.items():
+                new_dict[key] = value.to_dict()
+            json.dump(new_dict, f)
 
     def reload(self):
         """Deserialise the JSON in __file_path if it exists"""
         try:
-            with open(FileStorage.__file_path, "w", encoding="utf-8") as f:
+            with open(FileStorage.__file_path, "r", encoding="utf-8") as f:
                 loaded = json.load(f)
                 for base_dict in loaded.values():
                     name = base_dict["__class__"]
                     del base_dict["__class__"]
-                    new_obj = BaseModel(**base_dict)
+                    #new_obj = BaseModel(**base_dict)
                     self.new(eval(name)(**base_dict))
         except FileNotFoundError:
             return
