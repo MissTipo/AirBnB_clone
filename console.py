@@ -7,11 +7,16 @@ import cmd
 
 class HBNBCommand(cmd.Cmd):
     """This is the class definition for the command interpreter"""
-    prompt = "(hbnb)"
+    prompt = "(hbnb) "
 
     def do_EOF(self, line):
         """ This is a method to exit the program"""
         return True
+
+    def help_EOF(self):
+        """ This helps to quit the program """
+        print("This also quits program\n")
+
 
     def do_quit(self, line):
         """This is a method to quit the program"""
@@ -22,9 +27,12 @@ class HBNBCommand(cmd.Cmd):
         print("Quit command to exit the program\n")
 
     def emptyline(self):
-        """when lime is empty print nothing"""
+        """when line is empty print nothing"""
         pass
-
+    
+    def help_emptyline(self):
+        """This prints nothing when line is empty"""
+        print("This prints nothing when line is empty")
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
