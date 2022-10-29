@@ -3,13 +3,11 @@
 
 
 import cmd
-from datetime import datetime
-import uuid
 
 
 class HBNBCommand(cmd.Cmd):
     """This is the class definition for the command interpreter"""
-    prompt = "(hbnb) "
+    prompt = "(hbnb)"
 
     def do_EOF(self, line):
         """ This is a method to exit the program"""
