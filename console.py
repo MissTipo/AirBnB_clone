@@ -23,6 +23,10 @@ class HBNBCommand(cmd.Cmd):
         """Gives more information on the method quit"""
         print("Quit command to exit the program")
 
+    def emptyline(self):
+        """when lime is empty print nothing"""
+        pass
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
