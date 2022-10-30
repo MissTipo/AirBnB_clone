@@ -25,7 +25,7 @@ class FileStorage():
         sets in __objects the obj with key <obj class name>.id """
         key = obj.__class__.__name__ + "." + obj.id
         FileStorage.__objects[key] = obj
-        #FileStorage.__objects["{}.{}".format(key, obj.id)] = obj
+        # FileStorage.__objects["{}.{}".format(key, obj.id)] = obj
         # return f"Filestorage.__objects {key}.{obj.id}" = obj
 
     def save(self):
@@ -44,7 +44,7 @@ class FileStorage():
                 for base_dict in loaded.values():
                     name = base_dict["__class__"]
                     del base_dict["__class__"]
-                    #new_obj = BaseModel(**base_dict)
+                    # new_obj = BaseModel(**base_dict)
                     self.new(eval(name)(**base_dict))
         except FileNotFoundError:
             return
