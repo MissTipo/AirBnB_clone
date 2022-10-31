@@ -25,7 +25,14 @@ from models.review import Review
 class HBNBCommand(cmd.Cmd):
     """This is the class definition for the command interpreter"""
     prompt = "(hbnb) "
-    classes = ["BaseModel", "User", "State", "City", "Amenity", "Place", "Review"]
+    classes = [
+        "BaseModel",
+        "User",
+        "State",
+        "City",
+        "Amenity",
+        "Place",
+        "Review"]
 
     def do_EOF(self, line):
         """ This is a method to exit the program"""
@@ -145,6 +152,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             pass
 # Usage: update <class name> <id> <attribute name> "<attribute value>"
+
     def do_update(self, line):
         """
         Updates an instance based on the class name and id by adding or
@@ -152,7 +160,7 @@ class HBNBCommand(cmd.Cmd):
         Usage: update <class name> <id> <attribute name> "<attribute value>"
         """
         all_objs = storage.all()
-        line  = line.split()
+        line = line.split()
         if line:
             if len(line) == 1:
                 if line[0] == type(self).classes:
