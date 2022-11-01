@@ -9,11 +9,15 @@ Unittest classes:
     TestHBNBCommand_all
     TestHBNBCommand_destroy
     TestHBNBCommand_update
+
 """
+
+
 import os
 import sys
 import unittest
 from models import storage
+from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from console import HBNBCommand
 from io import StringIO
