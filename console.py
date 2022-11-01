@@ -1,6 +1,11 @@
 #!/usr/bin/python3
 """Contains the entry point of a command interpreter"""
 <<<<<<< HEAD
+
+
+=======
+<<<<<<< HEAD
+>>>>>>> refs/remotes/origin/main
 import cmd
 <<<<<<< HEAD
 =======
@@ -24,6 +29,7 @@ from models.review import Review
 
 class HBNBCommand(cmd.Cmd):
     """This is the class definition for the command interpreter"""
+
     prompt = "(hbnb) "
     classes = [
         "BaseModel",
@@ -151,7 +157,6 @@ class HBNBCommand(cmd.Cmd):
                 pass
         else:
             pass
-# Usage: update <class name> <id> <attribute name> "<attribute value>"
 
     def do_update(self, line):
         """
