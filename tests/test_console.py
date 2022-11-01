@@ -13,6 +13,7 @@ Unittest classes:
 import os
 import sys
 import unittest
+import tests
 from models import storage
 from models.engine.file_storage import FileStorage
 from console import HBNBCommand
